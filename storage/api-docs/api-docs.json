@@ -1,0 +1,318 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/api/categories": {
+            "get": {
+                "summary": "Liste des catégories",
+                "operationId": "f7bb7e1d34840af6be09c403129b9fd3",
+                "responses": {
+                    "200": {
+                        "description": "Succès"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Créer une catégorie",
+                "operationId": "71fcad552bb0eaba9fb191fd8d8dcab0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Travail"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Créée"
+                    }
+                }
+            }
+        },
+        "/api/categories/{id}": {
+            "get": {
+                "summary": "Afficher une catégorie",
+                "operationId": "c68e76d323c008827a9e47398b1583de",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Mettre à jour une catégorie",
+                "operationId": "0e686b2748211cc688333ed705dc111f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Personnel"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mise à jour"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Supprimer une catégorie",
+                "operationId": "4c12e22a7f8c617bd83bfa1fdc05428d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Supprimée"
+                    }
+                }
+            }
+        },
+        "/api/taches": {
+            "get": {
+                "summary": "Liste des tâches",
+                "operationId": "165de3ee067f86e2c8e1aff932466df3",
+                "parameters": [
+                    {
+                        "name": "titre",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "statut",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "categorie_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Créer une tâche",
+                "operationId": "6182cd27785f84db3d98057696f54ee9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "titre",
+                                    "categorie_id"
+                                ],
+                                "properties": {
+                                    "titre": {
+                                        "type": "string",
+                                        "example": "Acheter du pain"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Aller à la boulangerie"
+                                    },
+                                    "statut": {
+                                        "type": "string",
+                                        "example": "en_attente"
+                                    },
+                                    "date_echeance": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-06-01"
+                                    },
+                                    "categorie_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Créée"
+                    }
+                }
+            }
+        },
+        "/api/taches/{id}": {
+            "get": {
+                "summary": "Afficher une tâche",
+                "operationId": "a06dba5a63cc387eb077489de50ac7d7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Succès"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Mettre à jour une tâche",
+                "operationId": "e72a90cae4ca93db4cb050505d8a0c47",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "titre": {
+                                        "type": "string",
+                                        "example": "Acheter du pain"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Aller à la boulangerie"
+                                    },
+                                    "statut": {
+                                        "type": "string",
+                                        "example": "en_cours"
+                                    },
+                                    "date_echeance": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2024-06-01"
+                                    },
+                                    "categorie_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mise à jour"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Supprimer une tâche",
+                "operationId": "f6a5aaa1f1df7d47c2abc94e4aab5992",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Supprimée"
+                    }
+                }
+            }
+        },
+        "/api/taches/{id}/lue": {
+            "patch": {
+                "summary": "Marquer une tâche comme lue (terminée)",
+                "operationId": "de3c34b497c7003711a7d2a6b2917580",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tâche marquée comme lue"
+                    }
+                }
+            }
+        }
+    }
+}
